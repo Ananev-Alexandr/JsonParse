@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 
-public class ReadBytesFromJson {
-    public String ReadBytesFromJson(){
+public class ReadBytesFromJson implements AutoCloseable {
+    public String ReadBytesFromJson() {
         String json;
         FileInputStream inputStream = null;
         try {
@@ -21,5 +21,10 @@ public class ReadBytesFromJson {
             throw new RuntimeException(e);
         }
         return json;
+    }
+
+    @Override
+    public void close() throws IOException {
+
     }
 }
